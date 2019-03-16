@@ -1,21 +1,24 @@
-<div
-    class="widgetList"
->
-    <label
-        *ngFor="let node of nodeList"
-        class="widgetNode">
-        <span class="widgetNode_text">
-            {{node}}
-        </span>
-        |
-        <span class="widgetNode_delete" (click)="deleteNode(node)">X</span>
-    </label>
-
-</div>
-<hr>
-<button
-    class="btnChoose"
-    (click)="chenge()"
->
-    Изменить мой выбор
-</button>
+<article class="widget">
+    <h3>Выбор элементов</h3>
+    <p>На данный момент у вас выбрано {{nodeList.length}} элемента:</p>
+    <div
+        class="widgetList"
+    >
+        <label
+            *ngFor="let node of nodeList"
+            class="widgetNode">
+            <span class="widgetNode_text">
+                {{node}}
+            </span>
+            |
+            <span class="widgetNode_delete" (click)="deleteNode(node)">X</span>
+        </label>
+    
+    </div>
+    <button
+        class="btnChoose"
+        (click)="chenge()"
+    >
+        Изменить мой выбор
+    </button>
+</article>

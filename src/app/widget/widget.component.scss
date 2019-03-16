@@ -1,3 +1,17 @@
+:host {
+    display: block;
+    width: 500px;
+
+    .widget {
+        padding: 30px;
+        border: #d0d0d0 solid 2px;
+    }
+}
 .btnChoose {
+    display: inline-block;
+    margin-top: 20px;
     background: #9ca85a;
+    line-height: 30px;
+    padding: 0 24px;
+    cursor: pointer;
 }
