@@ -1,0 +1,21 @@
+<div
+    class="widgetList"
+>
+    <label
+        *ngFor="let node of nodeList"
+        class="widgetNode">
+        <span class="widgetNode_text">
+            {{node}}
+        </span>
+        |
+        <span class="widgetNode_delete" (click)="deleteNode(node)">X</span>
+    </label>
+
+</div>
+<hr>
+<button
+    class="btnChoose"
+    (click)="chenge()"
+>
+    Изменить мой выбор
+</button>

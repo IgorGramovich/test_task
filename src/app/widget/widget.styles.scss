@@ -1,0 +1,26 @@
+.widgetList {
+    display: flex;
+
+    .widgetNode {
+        display: inline-block;
+        width: 135px;
+        line-height: 30px;
+        padding-left: 10px;
+        background: black;
+        color: white;
+        text-align: end;
+        margin-left: 20px; // TODO delet
+    
+        .widgetNode_text {
+            float: left;
+        }
+    
+        .widgetNode_delete {
+            display: inline-block;
+            height: 30px;
+            width: 25px;
+            text-align: center;
+            transform: translateX(-3px)
+        }
+    }
+}
