@@ -28,8 +28,7 @@
             <input
                 type="checkbox"
                 [disabled]="node.disabled"
-                (change)="node.state = !node.state"
-                [checked]="node.state"
+                [(ngModel)]="node.state"
             >
             {{node.name}}
         </label>
