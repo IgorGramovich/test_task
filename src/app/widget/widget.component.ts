@@ -8,7 +8,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./widget.component.scss']
 })
 export class WidgetComponent implements OnDestroy {
-    public nodeList;
+    public isViewChoose = false;
+    public nodeList: string[];
     private _SWidgetSrv: Subscription;
 
     constructor(
@@ -23,7 +24,7 @@ export class WidgetComponent implements OnDestroy {
         this._SWidgetSrv.unsubscribe();
     }
     chenge() {
-        console.log('chenge()');
+        this.isViewChoose = !this.isViewChoose;
     }
 
     deleteNode(node: string) {

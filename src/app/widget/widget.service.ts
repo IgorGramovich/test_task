@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +9,7 @@ export class WidgetService {
     private _defaultList: string[] = ['Элемент 5', 'Элемент 51', 'Элемент 56'];
     private _allList: string[];
     private _nodeList: string[];
-    get nodeList$() {
+    get nodeList$(): Observable<string[]> {
         return this._nodeList$.asObservable();
     }
     constructor() {
