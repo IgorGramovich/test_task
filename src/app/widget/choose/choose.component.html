@@ -1,3 +1,57 @@
-<p>
-  choose works!
-</p>
+<article class="choose">
+    <header class="header">
+        Диалог выбора элементов
+        <span class="choose_close" (click)="cancel()">x</span>
+    </header>
+    <div class="search">
+        <div class="search_string">
+            <label>Поиск</label>
+            <input type="search">
+        </div>
+        <div class="search_range">
+            <label>Фильтр</label>
+            <select>
+                <option value="">Без фильтра</option>
+                <hr>
+                <option
+                    *ngFor="let item of filterOptions"
+                    [value]="item"
+                >Номер > {{item}}</option>
+            </select>
+        </div>
+    </div>
+    <section class="list">
+        <label
+            *ngFor="let node of widgetList"
+            class="list_item"
+        >
+            <input
+                type="checkbox"
+                [disabled]="node.disabled"
+                (change)="node.state = !node.state"
+                [checked]="node.state"
+            >
+            {{node.name}}
+        </label>
+    </section>
+    <p>
+        Выбранные элементы на данный момент:
+    </p>
+    <section class="widgetList">
+        <label *ngFor="let node of nodeList" class="widgetNode">
+            <span class="widgetNode_text">
+                {{node}}
+            </span>
+            |
+            <span class="widgetNode_delete" (click)="deleteNode(node)">x</span>
+        </label>
+    </section>
+    <footer class="footer">
+        <button class="btnChoose" (click)="save()">
+            Сохранить
+        </button>
+        <button class="btnChoose" (click)="cancel()">
+            Отмена
+        </button>
+    </footer>
+</article>

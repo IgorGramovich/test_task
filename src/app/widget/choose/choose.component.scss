@@ -1,0 +1,61 @@
+:host {
+    display: block;
+    margin-top: 20px;
+
+    .choose {
+        background: #3f3f3f;
+        padding: 15px 30px;
+        color: white;
+
+        .header {
+            .choose_close {
+                float: right;
+                transform: translateX(10px);
+                cursor: pointer;
+            }
+        }
+        .search {
+            margin: 20px 0;
+
+            label {
+                margin-right: 13px;
+            }
+            .search_string {
+                display: inline-block;
+
+
+                input[type="search"] {
+                    width: 140px;
+                }
+            }
+            .search_range {
+                display: inline-block;
+                float: right;
+            }
+        }
+        .list {
+            max-height: 260px;
+            background: #000;
+            overflow: auto;
+            color: white;
+            padding: 20px;
+            
+            .list_item {
+                display: block;
+                line-height: 25px;
+            }
+        }
+        .footer {
+            .btnChoose {
+                width: 100px;
+                color: white;
+                background: #778c03;
+                line-height: 25px;
+                margin-right: 10px;
+                text-align: start;
+                padding-left: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}

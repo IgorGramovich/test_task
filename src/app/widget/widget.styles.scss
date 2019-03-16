@@ -1,5 +1,6 @@
 .widgetList {
     display: flex;
+    flex-flow: row wrap;
 
     .widgetNode {
         display: inline-block;
@@ -9,7 +10,7 @@
         background: black;
         color: white;
         text-align: end;
-        margin-right: 10px;
+        margin:0 10px 10px 0;
     
         .widgetNode_text {
             float: left;
