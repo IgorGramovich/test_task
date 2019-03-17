@@ -30,12 +30,11 @@ export class ChooseComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.nodeList = this._widgetSrv.nodeList.slice();
-        this.nodeList.forEach((item: string) => {
+        this._widgetSrv.nodeList.forEach((item: string) => {
             this._setter.add(item);
         });
+        this.isDisabled = !(this._setter.size < 3);
         const listAll = this._widgetSrv.getAllList();
-        this.isDisabled = !(this.nodeList.length < 3);
         listAll.forEach((item: string, i: number) => {
             const st = this._setter.has(item);
             const conf: IConfWidgetNode = {
@@ -48,6 +47,7 @@ export class ChooseComponent implements OnInit {
             this._widgetListAll.push(new WidgetNode(conf));
         });
         this._filterList();
+        this.updateView();
     }
     deleteNode(name: string) {
         this._widgetListAll.forEach((node: WidgetNode) => {
@@ -57,7 +57,7 @@ export class ChooseComponent implements OnInit {
         });
     }
     save() {
-        console.log('save()');
+        this._widgetSrv.updateNode(this.nodeList);
     }
     cancel() {
         this._widgetSrv.chooseClose();

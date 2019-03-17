@@ -38,6 +38,11 @@ export class WidgetService {
         this._nodeList = this._nodeList.filter(str => str !== node);
         this._updateView();
     }
+    updateNode(list: string[]) {
+        this._nodeList = list;
+        this._updateView();
+        this.chooseClose();
+    }
     chooseClose() {
         this._isViewChoose$.next(false);
     }
