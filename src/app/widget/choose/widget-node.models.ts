@@ -39,7 +39,7 @@ export class WidgetNode {
         this.disabled = st.disabled;
         this._state = st.state;
         this._name = st.name;
-        this.index = st.index;
+        this.index = ++st.index;
         this._component = st.component;
     }
 }

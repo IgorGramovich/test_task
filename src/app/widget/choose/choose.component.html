@@ -3,15 +3,18 @@
         Диалог выбора элементов
         <span class="choose_close" (click)="cancel()">x</span>
     </header>
-    <div class="search">
+    <form
+        class="search"
+        [formGroup]="formSearch"
+    >
         <div class="search_string">
             <label>Поиск</label>
-            <input type="search">
+            <input type="search" formControlName="find">
         </div>
         <div class="search_range">
             <label>Фильтр</label>
-            <select>
-                <option value="">Без фильтра</option>
+            <select formControlName="larger">
+                <option value="0">Без фильтра</option>
                 <hr>
                 <option
                     *ngFor="let item of filterOptions"
@@ -19,7 +22,7 @@
                 >Номер > {{item}}</option>
             </select>
         </div>
-    </div>
+    </form>
     <section class="list">
         <label
             *ngFor="let node of widgetList"

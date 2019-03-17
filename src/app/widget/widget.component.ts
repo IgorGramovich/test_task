@@ -10,7 +10,7 @@ import { WidgetService } from './widget.service';
   styleUrls: ['./widget.component.scss']
 })
 export class WidgetComponent implements OnDestroy {
-    public isViewChoose = true;
+    public isViewChoose = false;
     public nodeList: string[];
     private _ngUnsubscribe: Subject<any> = new Subject();
 

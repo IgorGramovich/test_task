@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WidgetService } from '../widget.service';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { WidgetNode, IConfWidgetNode } from './widget-node.models';
+import { debounceTime } from 'rxjs/operators';
 
 export interface IStateFilter {
     find: string;
@@ -30,6 +31,12 @@ export class ChooseComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.formSearch = new FormGroup({
+            find: new FormControl(''),
+            larger: new FormControl(0),
+        });
+        this._stateFilter = this.formSearch.value;
+
         this._widgetSrv.nodeList.forEach((item: string) => {
             this._setter.add(item);
         });
@@ -48,6 +55,13 @@ export class ChooseComponent implements OnInit {
         });
         this._filterList();
         this.updateView();
+
+        this.formSearch.valueChanges
+        .pipe(debounceTime(200))
+            .subscribe((data: IStateFilter) => {
+            this._stateFilter = data;
+            this._filterList(true);
+        });
     }
     deleteNode(name: string) {
         this._widgetListAll.forEach((node: WidgetNode) => {
@@ -63,6 +77,7 @@ export class ChooseComponent implements OnInit {
         this._widgetSrv.chooseClose();
     }
     toggleDisabled(state: boolean) {
+        this.isDisabled = state;
         this._widgetListAll.forEach((node: WidgetNode) => {
             node.disabled = state && !node.state;
         });
@@ -82,7 +97,7 @@ export class ChooseComponent implements OnInit {
             return;
         }
         this.widgetList = this._widgetListAll.filter((node: WidgetNode) => {
-            return true;
+            return node.name.indexOf(this._stateFilter.find) >= 0 && node.index > this._stateFilter.larger;
         });
     }
 }
