@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 export class WidgetService {
     private _nodeList$: BehaviorSubject<string[]>;
     private _isViewChoose$: Subject<boolean>;
-    private _defaultList: string[] = ['Элемент 2', 'Элемент 4', 'Элемент 6'];
+    private _defaultList: string[] = ['Элемент 201', 'Элемент 202', 'Элемент 206'];
     private _allList: string[];
     private _nodeList: string[];
     get nodeList() {
