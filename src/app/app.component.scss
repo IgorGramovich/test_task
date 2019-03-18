@@ -93,31 +93,33 @@
         background-position-y: -15px;
     }
     .menu {
-
-        & *{
-            margin: 0;
-            padding: 0;
+        input {
+            display: none;
         }
-        ul {
-            list-style: none;
+        nav.nav {
             display: flex;
             justify-content: center;
-
-            li{
-                a {
-                    display: block;
-                    padding: 5px;
-                    color: rgb(112, 114, 117);
-                    line-height: 24px;
-                    text-decoration: none;
-                    margin-right: 5px;
-
-                    &:hover {
-                        background-color: rgb(112, 114, 117);
-                        border-radius: 5px;
-                        color: rgb(239, 240, 241);
-                    }
+    
+            input {
+                display: none;
+            }
+            label.tab-title {
+                display: block;
+                padding: 5px 10px;
+                color: rgb(112, 114, 117);
+                line-height: 24px;
+                text-decoration: none;
+                margin-right: 5px;
+    
+                span.icon {
+                    display: none;
                 }
+            }
+            input[type="radio"]:checked + label.tab-title {
+                background-color: rgb(112, 114, 117);
+                box-shadow: inset 0 0 2px 0px #fff;
+                border-radius: 5px;
+                color: rgb(239, 240, 241);
             }
         }
     }

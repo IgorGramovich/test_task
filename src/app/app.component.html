@@ -10,13 +10,18 @@
 
 <hr class="hr-separator">
 
-<nav class="menu">
-    <ul>
-        <li><a href="#">World Of Tanks</a></li>
-        <li><a href="#">World Of Warplanes</a></li>
-        <li><a href="#">World Of Warships</a></li>
-    </ul>
-</nav>
+<div class="menu">
+    <input type="checkbox" id="m-label">
+    <label for="m-label" class="menu-label"><span class="icon icon-menu"></span></label>
+    <nav class="nav">
+        <input type="radio" id="tab1" name="tab-group">
+        <label for="tab1" class="tab-title" data-text="World Of Tanks"><span class="icon icon-arrow"></span>World Of Tanks</label>
+        <input type="radio" id="tab2" name="tab-group" checked>
+        <label for="tab2" class="tab-title" data-text="World Of Warplanes"><span class="icon icon-arrow"></span>World Of Warplanes</label>
+        <input type="radio" id="tab3" name="tab-group">
+        <label for="tab3" class="tab-title" data-text="World Of Warships"><span class="icon icon-arrow"></span>World Of Warships</label>
+    </nav>
+</div>
 
 
 
@@ -28,4 +33,4 @@
 
 
 
-<wg-widget></wg-widget>
+<!-- <wg-widget></wg-widget> -->
