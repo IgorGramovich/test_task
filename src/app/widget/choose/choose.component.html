@@ -24,6 +24,7 @@
         </div>
     </form>
     <section class="list">
+        <span *ngIf="!widgetList.length">Элементы отсутствуют</span>
         <label
             *ngFor="let node of widgetList"
             class="list_item"
